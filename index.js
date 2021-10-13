@@ -29,11 +29,7 @@ const ViewButton = ({
           { width: buttonSize, height: buttonSize, borderRadius: buttonSize / 2 },
           customViewStyle,
         ]}>
-        {customComponent ? (
-          customComponent
-        ) : (
-          <Text style={[PinViewStyle.buttonText, customTextStyle]}>{text}</Text>
-        )}
+        {customComponent ? customComponent : <Text style={[PinViewStyle.buttonText, customTextStyle]}>{text}</Text>}
       </View>
     </TouchableOpacity>
   )
@@ -93,7 +89,7 @@ const PinView = React.forwardRef(
       pinLength,
       buttonSize,
       buttonViewStyle,
-      buttonTextStyle ,
+      buttonTextStyle,
       inputViewEmptyStyle,
       inputViewFilledStyle,
       showInputText,
@@ -135,11 +131,10 @@ const PinView = React.forwardRef(
     }
 
     useEffect(() => {
-      if (onValueChange!==undefined){
+      if (onValueChange !== undefined) {
         onValueChange(input)
       }
     }, [input])
-
 
     return (
       <View style={[PinViewStyle.pinView, style]}>
@@ -270,7 +265,6 @@ const PinView = React.forwardRef(
             text={buttonTextByKey.zero}
             customTextStyle={buttonTextStyle}
             customViewStyle={buttonViewStyle}
-            buttonSize={customLeftButtonSize}
           />
           {customRightButton !== undefined ? (
             <ViewButton
@@ -307,13 +301,13 @@ PinView.defaultProps = {
   },
   accessible: false,
   onButtonPress: () => {},
-  inputTextStyle : { color: "#FFF" },
-  buttonAreaStyle : { marginVertical: 12 },
-  inputAreaStyle : { marginVertical: 12 },
-  activeOpacity :0.9,
-  buttonTextStyle : { color: "#FFF", fontSize: 30 },
-  customRightAccessibilityLabel : "right",
-  customLeftAccessibilityLabel : "left",
+  inputTextStyle: { color: "#FFF" },
+  buttonAreaStyle: { marginVertical: 12 },
+  inputAreaStyle: { marginVertical: 12 },
+  activeOpacity: 0.9,
+  buttonTextStyle: { color: "#FFF", fontSize: 30 },
+  customRightAccessibilityLabel: "right",
+  customLeftAccessibilityLabel: "left",
   disabled: false,
   customLeftButtonDisabled: false,
   customRightButtonDisabled: false,
